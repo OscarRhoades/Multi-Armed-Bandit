@@ -42,6 +42,7 @@ fn game_over(board: &Board, history: &mut Vec<u64>, clock: &clock::Clock) -> boo
     let flag = clock.white_flag() || clock.black_flag();
 
     !(!board.checkmate() && !board.stalemate() && !threefold && !insufficient && !flag)
+    
 }
 
 fn play(mut board: Board) {
@@ -56,26 +57,32 @@ fn play(mut board: Board) {
     while !game_over(&board, &mut history, &clock) {
         if board.turn() == Player::White {
             let white_begin = Instant::now();
-            board.apply_move(enginemove::choice(&board));
+            println!("white");
+            board.apply_move(enginemove::engine(&board, pleco::Player::White));
             let white_end = Instant::now();
             let white_movetime = white_end.duration_since(white_begin);
             clock.white_update(white_movetime);
 
         } else {
             let black_begin = Instant::now();
-            board.apply_move(usermove::choice(&board));
+            println!("black");
+            board.apply_move(enginemove::engine(&board, pleco::Player::Black));
             let black_end = Instant::now();
             let black_movetime = black_end.duration_since(black_begin);
             clock.black_update(black_movetime);
         }
         board.pretty_print();
-        clock.print_time();
+        // clock.print_time();
     }
 }
 
 fn main() {
-    let board = Board::start_pos();
-    enginemove::init_tree(board);
+    let fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+    let board = Board::from_fen(fen).ok().unwrap();
+
+
+    play(board)
+    
     // play(board);
 }
 

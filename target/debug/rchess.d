@@ -1,1 +1,1 @@
-/Users/oscarrhoades/Documents/rchess/target/debug/rchess: /Users/oscarrhoades/Documents/rchess/src/clock.rs /Users/oscarrhoades/Documents/rchess/src/enginemove.rs /Users/oscarrhoades/Documents/rchess/src/main.rs /Users/oscarrhoades/Documents/rchess/src/usermove.rs
+/Users/oscarrhoades/Documents/totientQueue/target/debug/rchess: /Users/oscarrhoades/Documents/totientQueue/src/clock.rs /Users/oscarrhoades/Documents/totientQueue/src/enginemove.rs /Users/oscarrhoades/Documents/totientQueue/src/main.rs /Users/oscarrhoades/Documents/totientQueue/src/usermove.rs

@@ -345,6 +345,7 @@ version = "0.1.0"
 dependencies = [
  "pleco",
  "rand 0.8.4",
+ "rayon",
  "text_io",
 ]
 
